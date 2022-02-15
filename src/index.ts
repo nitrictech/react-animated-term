@@ -11,11 +11,9 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-import Renderer from './Renderer'
-import Code from './Code'
+import Renderer, { RendererProps } from './Renderer';
+import Code from './Code';
 
-export {
-  Code
-}
+export { Code, RendererProps };
 
-export default Renderer
+export default Renderer;
