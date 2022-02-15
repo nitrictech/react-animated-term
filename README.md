@@ -1,7 +1,7 @@
 # @nitric/react-animated-term
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nitrictech/@nitric/react-animated-term/Tests?label=tests)
-![Codecov](https://img.shields.io/codecov/c/github/nitrictech/@nitric/react-animated-term)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nitrictech/react-animated-term/Tests?label=tests)
+![Codecov](https://img.shields.io/codecov/c/github/nitrictech/react-animated-term)
 ![npm (scoped)](https://img.shields.io/npm/v/@nitric/react-animated-term)
 ![npm](https://img.shields.io/npm/dw/@nitric/react-animated-term)
 
