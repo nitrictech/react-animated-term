@@ -11,16 +11,18 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-export default [
+const basic = [
   {
     text: 'ls',
-    cmd: true
+    cmd: true,
   },
   {
-    text: 'index.js    package.json    node_modules'
+    text: 'index.js    package.json    node_modules',
   },
   {
     text: '',
-    cmd: true
-  }
-]
+    cmd: true,
+  },
+];
+
+export default basic;

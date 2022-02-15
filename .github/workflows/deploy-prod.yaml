@@ -1,0 +1,27 @@
+name: Deploy to vercel prod
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - 'main'
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # deploy app to vercel
+      - name: deploy site to vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          scope: ${{ secrets.VERCEL_TEAM_ID }} # Required
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
+          vercel-args: '--prod' #Optional
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}} #Required
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
