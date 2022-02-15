@@ -6,6 +6,7 @@
     "**/*.config.*",
     "**/.gitignore",
     "lib/**/*",
+    "examples/**/*",
     ".yarn/",
     ".github/",
     "**/*.md",

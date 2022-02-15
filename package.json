@@ -36,7 +36,7 @@
     "prettier:fix": "prettier --write src",
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "yarn lint --fix",
-    "start": "http-server ./examples/src"
+    "start": "yarn --cwd examples/create-react-app start"
   },
   "peerDependencies": {
     "react": "^17.0.2",
@@ -76,6 +76,7 @@
   "license-check-config": {
     "src": [
       "src/**/*.ts",
+      "!./examples/**/*",
       "!./node_modules/**/*"
     ],
     "path": "assets/license_header.txt",
