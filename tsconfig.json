@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2015"],
+    "module": "ESNext",
+    "target": "ES6",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "importHelpers": true
+  },
+  "include": ["src"],
+  "exclude": ["dist", "build", "node_modules"]
+}
