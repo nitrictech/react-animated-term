@@ -150,21 +150,27 @@ const MyComponent = () => {
 | interval | number | 100 | interval at which terminal output is updated in milliseconds |
 | white | boolean | false | whether to render a white themed terminal |
 | height | number | 240 | the height of the terminal |
+| onCompleted | func | undefined | a function callback that gets called when the terminal animation has completed |
 
 ### Examples
 
-To run the examples, clone and install the dependencies.
-```
-$ git clone https://github.com/dongy7/react-animated-term.git
-$ npm install
+You can view the deployed example from `examples/create-react-app` here: [react-animated-term.vercel.app](https://react-animated-term.vercel.app).
+
+To run the examples, clone and install the dependencies:
+
+```bash
+git clone https://github.com/nitrictech/react-animated-term.git
+yarn install
 ```
 
-Then, run the `start` script and open up `http://localhost:8000`.
+Then, run the `start` script and open up `http://localhost:3000`.
 
-```
-$ npm run start
+```bash
+yarn start
 ```
 
 ## Credits
+
+The original code was written by [dongy7](https://github.com/dongy7) under the [react-animated-term](https://github.com/dongy7/react-animated-term) repo.
 
 The styling for the terminal was adapted from the [Hyper](https://hyper.is/) terminal.
