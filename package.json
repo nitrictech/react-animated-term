@@ -76,6 +76,7 @@
   "license-check-config": {
     "src": [
       "src/**/*.ts",
+      "!./examples/**/*",
       "!./node_modules/**/*"
     ],
     "path": "assets/license_header.txt",

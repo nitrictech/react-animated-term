@@ -11,27 +11,29 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-const spinnerFrames = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
-export default [
+const spinnerFrames = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
+const spinner = [
   {
     text: 'node example.js',
     cmd: true,
-    delay: 80
+    delay: 80,
   },
   {
     text: '✔ Loaded app',
     cmd: false,
     repeat: true,
     repeatCount: 5,
-    frames: spinnerFrames.map(function(spinner) {
+    frames: spinnerFrames.map(function (spinner) {
       return {
         text: spinner + ' Loading app',
-        delay: 40
-      }
-    })
+        delay: 40,
+      };
+    }),
   },
   {
     text: '',
-    cmd: true
-  }
-]
+    cmd: true,
+  },
+];
+
+export default spinner;
