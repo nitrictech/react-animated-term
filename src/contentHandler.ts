@@ -41,6 +41,7 @@ const terminalContent = function* (lines: Line[]) {
             text: lines[lineIndex].text,
             cmd: false,
             current: false,
+            color: lines[lineIndex].color,
           });
 
           yield buffer;
@@ -57,6 +58,7 @@ const terminalContent = function* (lines: Line[]) {
                 text: frames[0].text,
                 cmd: false,
                 current: true,
+                color: lines[lineIndex].color,
               });
             }
           }
@@ -112,6 +114,8 @@ const terminalContent = function* (lines: Line[]) {
             id: lineIndex,
             text: '',
             cmd: lines[lineIndex].cmd,
+            prompt: lines[lineIndex].prompt,
+            color: lines[lineIndex].color,
             current: true,
           });
         }

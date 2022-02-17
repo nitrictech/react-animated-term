@@ -13,7 +13,9 @@
 // limitations under the License.
 import Renderer, { Code } from '@nitric/react-animated-term';
 import basicLines from './terminals/basic';
+import customPrompt from './terminals/custom-prompt';
 import spinnerLines from './terminals/spinner';
+import colorLines from './terminals/color';
 import progressLines from './terminals/progress';
 import '@nitric/react-animated-term/css/styles.css';
 
@@ -26,6 +28,16 @@ function App() {
         <Renderer lines={basicLines} interval={80} white />
       </div>
 
+      <h2>No replay</h2>
+      <div style={{ width: '380px' }}>
+        <Renderer lines={basicLines} interval={80} white replay={false} />
+      </div>
+
+      <h2>Custom Prompt</h2>
+      <div style={{ width: '380px' }}>
+        <Renderer lines={customPrompt} interval={80} />
+      </div>
+
       <h2>Repeated Frames Example</h2>
       <div style={{ width: '380px' }}>
         <Renderer lines={spinnerLines} interval={10} />
@@ -34,6 +46,11 @@ function App() {
       <h2>Progress Bar Example</h2>
       <div style={{ width: '480px' }}>
         <Renderer lines={progressLines} interval={5} />
+      </div>
+
+      <h2>Custom JSX Example</h2>
+      <div style={{ width: '380px' }}>
+        <Renderer lines={colorLines} interval={10} />
       </div>
 
       <h2>Code Example</h2>
