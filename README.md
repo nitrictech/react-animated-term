@@ -1,7 +1,7 @@
 # @nitric/react-animated-term
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nitrictech/@nitric/react-animated-term/Tests?label=tests)
-![Codecov](https://img.shields.io/codecov/c/github/nitrictech/@nitric/react-animated-term)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nitrictech/react-animated-term/Tests?label=tests)
+![Codecov](https://img.shields.io/codecov/c/github/nitrictech/react-animated-term)
 ![npm (scoped)](https://img.shields.io/npm/v/@nitric/react-animated-term)
 ![npm](https://img.shields.io/npm/dw/@nitric/react-animated-term)
 
@@ -31,8 +31,8 @@ yarn add @nitric/react-animated-term
 You can then import `react-animated-term` and its styles.
 
 ```js
-import Terminal from '@nitric/react-animated-term'
-import '@nitric/react-animated-term/css/styles.css'
+import Terminal from '@nitric/react-animated-term';
+import '@nitric/react-animated-term/css/styles.css';
 ```
 
 ## Usage
@@ -40,32 +40,28 @@ import '@nitric/react-animated-term/css/styles.css'
 The terminal commands and output lines are specified as an array of objects. The `text` field specifies the content of the line and `cmd` is used to specify whether the line is a command or an output. The `interval` prop specifies how often the terminal should be updated.
 
 ```js
-import React from 'react'
-import Terminal from '@nitric/react-animated-term'
+import React from 'react';
+import Terminal from '@nitric/react-animated-term';
 
 const termLines = [
   {
-    'text': 'ls',
-    'cmd': true
+    text: 'ls',
+    color: 'blue', // you can add colors
+    cmd: true,
   },
   {
-    'text': 'index.js    package.json    node_modules',
-    'cmd': false
+    text: 'index.js    package.json    node_modules',
+    cmd: false,
   },
   {
-    'text': '',
-    'cmd': true
-  }
-]
+    text: '',
+    cmd: true,
+  },
+];
 
 const MyComponent = () => {
-  return (
-      <Terminal
-        lines={termLines}
-        interval={80}
-      />
-   )
-}
+  return <Terminal lines={termLines} interval={80} />;
+};
 ```
 
 ### Framed Animation
@@ -80,14 +76,14 @@ const MyComponent = () => {
 You can also render output that consists of frames by specifying the individual frames. With a framed output, the `text` field specifies the final output that should be rendered after all the frames have been rendered. Delays can also be specified for individual frames and commands.
 
 ```js
-import React from 'react'
-import Terminal from '@nitric/react-animated-term'
-const spinner = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
+import React from 'react';
+import Terminal from '@nitric/react-animated-term';
+const spinner = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
 const termLines = [
   {
     text: 'node example.js',
     cmd: true,
-    delay: 80
+    delay: 80,
   },
   {
     text: '✔ Loaded app',
@@ -97,24 +93,19 @@ const termLines = [
     frames: spinner.map(function (spinner) {
       return {
         text: spinner + ' Loading app',
-        delay: 40
-      }
-    })
+        delay: 40,
+      };
+    }),
   },
   {
     text: '',
-    cmd: true
-  }
-]
+    cmd: true,
+  },
+];
 
 const MyComponent = () => {
-  return (
-      <Terminal
-        lines={termLines}
-        interval={80}
-      />
-   )
-}
+  return <Terminal lines={termLines} interval={80} />;
+};
 ```
 
 ### Themes
@@ -129,28 +120,24 @@ A white themed terminal is specified using the `white` prop.
 </p>
 
 ```js
-import React from 'react'
-import Terminal from '@nitric/react-animated-term'
+import React from 'react';
+import Terminal from '@nitric/react-animated-term';
 
 const MyComponent = () => {
-  return (
-      <Terminal
-        lines={termLines}
-        interval={80}
-		white
-      />
-   )
-}
+  return <Terminal lines={termLines} interval={80} white />;
+};
 ```
 
 ### Props
-| Property | Type | Default | Description |
-|:---|:---|:---|:---|
-| lines | array| undefined | array of terminal lines |
-| interval | number | 100 | interval at which terminal output is updated in milliseconds |
-| white | boolean | false | whether to render a white themed terminal |
-| height | number | 240 | the height of the terminal |
-| onCompleted | func | undefined | a function callback that gets called when the terminal animation has completed |
+
+| Property    | Type    | Default   | Description                                                  |
+| :---------- | :------ | :-------- | :----------------------------------------------------------- |
+| lines       | array   | undefined | array of terminal lines                                      |
+| interval    | number  | 100       | interval at which terminal output is updated in milliseconds |
+| white       | boolean | false     | whether to render a white themed terminal                    |
+| height      | number  | 240       | the height of the terminal                                   |
+| onCompleted | func    | undefined | a function callback that gets called when the terminal animation has completed |
+| replay      | boolean | true      | Shows or hides the replay button                             |
 
 ### Examples
 

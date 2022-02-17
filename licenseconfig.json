@@ -3,6 +3,7 @@
   "ignore": [
     "README",
     ".*",
+    "**/__snapshots__/**",
     "**/*.config.*",
     "**/.gitignore",
     "lib/**/*",

@@ -36,7 +36,10 @@
     "prettier:fix": "prettier --write src",
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "yarn lint --fix",
-    "start": "yarn --cwd examples/create-react-app start"
+    "start": "yarn --cwd examples/create-react-app start",
+    "build-example": "yarn --cwd examples/create-react-app build",
+    "install-example": "yarn --cwd examples/create-react-app install",
+    "link-example": "yarn --cwd examples/create-react-app link \"@nitric/react-animated-term\""
   },
   "peerDependencies": {
     "react": "^17.0.2",
@@ -60,7 +63,6 @@
     "licensee": "^8.2.0",
     "lint-staged": "^12.3.2",
     "prettier": "^2.5.1",
-    "react": "^17.0.2",
     "ts-jest": "^27.1.3",
     "tsup": "^5.11.11",
     "typescript": "^4.5.5"
