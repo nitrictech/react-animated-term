@@ -17,14 +17,20 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 const cursor = <span className="Terminal-cursor" />;
-const prompt = <span className="Terminal-prompt">$ </span>;
+const prompt = (prefix) => (
+  <span className="Terminal-prompt">{prefix || '$'} </span>
+);
 
 const renderLines = (lines) => {
   return lines.map((line) => {
     return (
       <React.Fragment key={line.id}>
-        {line.cmd ? prompt : ''}
-        {line.text}
+        {line.cmd ? prompt(line.prompt) : ''}
+        {line.text ? (
+          <span style={{ color: line.color }}>{line.text}</span>
+        ) : (
+          line.text
+        )}
         {line.current ? cursor : ''}
         <br />
       </React.Fragment>
@@ -76,6 +82,7 @@ export interface TerminalProps {
   code?: boolean;
   onReplay?: () => void;
   completed?: boolean;
+  replay?: boolean;
 }
 
 const Terminal: React.FC<TerminalProps> = ({
@@ -85,6 +92,7 @@ const Terminal: React.FC<TerminalProps> = ({
   code,
   onReplay,
   completed,
+  replay = true,
 }) => {
   const btnClassName = white
     ? 'Terminal-control-btn Terminal-control-btn-white'
@@ -108,7 +116,7 @@ const Terminal: React.FC<TerminalProps> = ({
             ) : (
               <div>
                 <div className="Terminal-code">{renderLines(children)}</div>
-                {completed ? (
+                {completed && replay ? (
                   <a className={btnClassName} onClick={() => onReplay()}>
                     Replay
                   </a>

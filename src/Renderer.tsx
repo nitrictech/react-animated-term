@@ -20,10 +20,13 @@ import termContent from './contentHandler';
 export interface Line {
   delay?: number;
   text?: string;
+  color?: string;
   cmd?: boolean;
   repeat?: boolean;
   repeatCount?: number;
   frames?: Line[];
+  prompt?: string | React.ReactNode;
+  replay?: boolean;
 }
 
 export interface RendererProps

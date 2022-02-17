@@ -1,24 +1,10 @@
-/*
-Copyright 2022, Nitric Technologies Pty Ltd.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`correctly handles framed output 1`] = `
 Array [
   Object {
     "cmd": false,
+    "color": undefined,
     "current": true,
     "id": 0,
     "text": "[------------------------------------------------] 0/100",
@@ -30,6 +16,7 @@ exports[`correctly handles framed output 2`] = `
 Array [
   Object {
     "cmd": false,
+    "color": undefined,
     "current": true,
     "id": 0,
     "text": "[################################################] 100/100",
@@ -41,6 +28,7 @@ exports[`correctly handles framed output 3`] = `
 Array [
   Object {
     "cmd": false,
+    "color": undefined,
     "current": false,
     "id": 0,
     "text": "[################################################] 100/100",
@@ -52,6 +40,7 @@ exports[`correctly handles framed output 4`] = `
 Array [
   Object {
     "cmd": false,
+    "color": undefined,
     "current": false,
     "id": 0,
     "text": "[################################################] 100/100",
@@ -63,8 +52,10 @@ exports[`correctly handles static cmd line 1`] = `
 Array [
   Object {
     "cmd": true,
+    "color": undefined,
     "current": true,
     "id": 0,
+    "prompt": undefined,
     "text": "",
   },
 ]
@@ -74,8 +65,10 @@ exports[`correctly handles static cmd line 2`] = `
 Array [
   Object {
     "cmd": true,
+    "color": undefined,
     "current": true,
     "id": 0,
+    "prompt": undefined,
     "text": "l",
   },
 ]
@@ -85,8 +78,10 @@ exports[`correctly handles static cmd line 3`] = `
 Array [
   Object {
     "cmd": true,
+    "color": undefined,
     "current": true,
     "id": 0,
+    "prompt": undefined,
     "text": "ls",
   },
 ]
@@ -96,8 +91,10 @@ exports[`correctly handles static cmd line 4`] = `
 Array [
   Object {
     "cmd": true,
+    "color": undefined,
     "current": true,
     "id": 0,
+    "prompt": undefined,
     "text": "ls",
   },
 ]
@@ -107,8 +104,10 @@ exports[`correctly handles static cmd line 5`] = `
 Array [
   Object {
     "cmd": true,
+    "color": undefined,
     "current": true,
     "id": 0,
+    "prompt": undefined,
     "text": "ls",
   },
 ]
@@ -118,6 +117,7 @@ exports[`correctly handles static output line 1`] = `
 Array [
   Object {
     "cmd": false,
+    "color": undefined,
     "current": false,
     "id": 0,
     "text": "foo",
@@ -129,6 +129,7 @@ exports[`correctly handles static output line 2`] = `
 Array [
   Object {
     "cmd": false,
+    "color": undefined,
     "current": false,
     "id": 0,
     "text": "foo",
@@ -140,6 +141,7 @@ exports[`correctly handles static output line 3`] = `
 Array [
   Object {
     "cmd": false,
+    "color": undefined,
     "current": false,
     "id": 0,
     "text": "foo",
