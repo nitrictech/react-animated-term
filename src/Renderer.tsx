@@ -34,7 +34,7 @@ export interface RendererProps
   extends Omit<TerminalProps, 'onReplay' | 'completed'> {
   lines: Line[];
   interval?: number;
-  onCompleted?: () => void;
+  onCompleted?: (replay: () => void) => void;
 }
 
 const Renderer: React.FC<RendererProps> = ({
@@ -84,7 +84,7 @@ const Renderer: React.FC<RendererProps> = ({
 
   React.useEffect(() => {
     if (completed && typeof onCompleted !== 'undefined') {
-      onCompleted();
+      onCompleted(replay);
     }
   }, [completed]);
 
