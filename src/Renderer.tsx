@@ -20,6 +20,7 @@ import termContent from './contentHandler';
 export interface Line {
   delay?: number;
   text?: string;
+  element?: React.ReactElement;
   color?: string;
   cmd?: boolean;
   repeat?: boolean;

@@ -17,6 +17,7 @@ import customPrompt from './terminals/custom-prompt';
 import spinnerLines from './terminals/spinner';
 import colorLines from './terminals/color';
 import progressLines from './terminals/progress';
+import customElement from './terminals/custom-element';
 import '@nitric/react-animated-term/css/styles.css';
 
 function App() {
@@ -36,6 +37,11 @@ function App() {
       <h2>Custom Prompt</h2>
       <div style={{ width: '380px' }}>
         <Renderer lines={customPrompt} interval={80} />
+      </div>
+
+      <h2>Custom React Element</h2>
+      <div style={{ width: '380px' }}>
+        <Renderer lines={customElement} interval={80} />
       </div>
 
       <h2>Repeated Frames Example</h2>

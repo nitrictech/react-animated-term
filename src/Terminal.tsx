@@ -26,7 +26,9 @@ const renderLines = (lines) => {
     return (
       <React.Fragment key={line.id}>
         {line.cmd ? prompt(line.prompt) : ''}
-        {line.text ? (
+        {line.element ? (
+          line.element
+        ) : line.text ? (
           <span style={{ color: line.color }}>{line.text}</span>
         ) : (
           line.text
