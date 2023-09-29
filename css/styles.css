@@ -17,10 +17,10 @@ limitations under the License.
   position: relative;
   width: 100%;
   height: 100%;
-  border: 1px solid rgb(51, 51, 51);
+  border: 1px solid var(--nitric-terminal-window-border-color, rgb(51, 51, 51));
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
-  background: rgb(0, 0, 0);
+  background: var(--nitric-terminal-window, rgb(0, 0, 0));
 }
 
 .Terminal-window-white {
@@ -81,17 +81,17 @@ limitations under the License.
 }
 
 .Terminal-btn-close {
-  background-color: rgb(255, 95, 86);
+  background-color: var(--nitric-btn-close, rgb(255, 95, 86));
   left: 13px;
 }
 
 .Terminal-btn-minimize {
-  background-color: rgb(255, 189, 46);
+  background-color: var(--nitric-btn-minimize, rgb(255, 189, 46));
   left: 33px;
 }
 
 .Terminal-btn-maximize {
-  background-color: rgb(39, 201, 63);
+  background-color: var(--nitric-btn-maximize, rgb(39, 201, 63));
   left: 53px;
 }
 
@@ -103,7 +103,7 @@ limitations under the License.
   display: inline-block;
   width: 6px;
   height: 15px;
-  background: rgb(248, 28, 229);
+  background: var(--nitric-term-cursor, rgb(248, 28, 229));
   vertical-align: middle;
 }
 
