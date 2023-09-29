@@ -39,6 +39,7 @@ const terminalContent = function* (lines: Line[]) {
           buffer.push({
             id: lineIndex,
             text: lines[lineIndex].text,
+            element: lines[lineIndex].element,
             cmd: false,
             current: false,
             color: lines[lineIndex].color,
@@ -56,6 +57,7 @@ const terminalContent = function* (lines: Line[]) {
               buffer.push({
                 id: lineIndex,
                 text: frames[0].text,
+                element: frames[0].element,
                 cmd: false,
                 current: true,
                 color: lines[lineIndex].color,
@@ -65,6 +67,7 @@ const terminalContent = function* (lines: Line[]) {
 
           // show the current frame's text
           buffer[lineIndex].text = frames[frameIndex].text;
+          buffer[lineIndex].element = frames[frameIndex].element;
 
           // start a timer to render the next frame only after the delay
           if (frameTimer == null) {
@@ -94,6 +97,10 @@ const terminalContent = function* (lines: Line[]) {
               buffer[lineIndex].text = lines[lineIndex].text;
             }
 
+            if (lines[lineIndex].element) {
+              buffer[lineIndex].element = lines[lineIndex].element;
+            }
+
             // move to next line
             buffer[lineIndex].current = false;
             linePosition = 0;
@@ -113,6 +120,7 @@ const terminalContent = function* (lines: Line[]) {
           buffer.push({
             id: lineIndex,
             text: '',
+            element: lines[lineIndex].element,
             cmd: lines[lineIndex].cmd,
             prompt: lines[lineIndex].prompt,
             color: lines[lineIndex].color,

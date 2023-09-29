@@ -75,7 +75,7 @@ const MyComponent = () => {
 
 You can also render output that consists of frames by specifying the individual frames. With a framed output, the `text` field specifies the final output that should be rendered after all the frames have been rendered. Delays can also be specified for individual frames and commands.
 
-```js
+```jsx
 import React from 'react';
 import Terminal from '@nitric/react-animated-term';
 const spinner = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
@@ -87,6 +87,7 @@ const termLines = [
   },
   {
     text: '✔ Loaded app',
+    element: <><span className="text-green">✔</span> Loaded app<>,
     cmd: false,
     repeat: true,
     repeatCount: 5,
@@ -130,14 +131,14 @@ const MyComponent = () => {
 
 ### Props
 
-| Property    | Type    | Default   | Description                                                  |
-| :---------- | :------ | :-------- | :----------------------------------------------------------- |
-| lines       | array   | undefined | array of terminal lines                                      |
-| interval    | number  | 100       | interval at which terminal output is updated in milliseconds |
-| white       | boolean | false     | whether to render a white themed terminal                    |
-| height      | number  | 240       | the height of the terminal                                   |
+| Property    | Type    | Default   | Description                                                                    |
+| :---------- | :------ | :-------- | :----------------------------------------------------------------------------- |
+| lines       | array   | undefined | array of terminal lines                                                        |
+| interval    | number  | 100       | interval at which terminal output is updated in milliseconds                   |
+| white       | boolean | false     | whether to render a white themed terminal                                      |
+| height      | number  | 240       | the height of the terminal                                                     |
 | onCompleted | func    | undefined | a function callback that gets called when the terminal animation has completed |
-| replay      | boolean | true      | Shows or hides the replay button                             |
+| replay      | boolean | true      | Shows or hides the replay button                                               |
 
 ### Examples
 
