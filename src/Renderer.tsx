@@ -37,62 +37,67 @@ export interface RendererProps
   onCompleted?: (replay: () => void) => void;
 }
 
-const Renderer: React.FC<RendererProps> = ({
-  lines: initialLines = [],
-  interval = 100,
-  onCompleted,
-  ...rest
-}) => {
-  const [lines, setLines] = React.useState([]);
-  const [completed, setCompleted] = React.useState(false);
-  let intervalRef = React.useRef<NodeJS.Timer>();
-  let contentRef = React.useRef<Generator>();
+export interface RendererRef {
+  replay: () => void;
+}
 
-  React.useEffect(() => {
-    contentRef.current = termContent(initialLines);
+const Renderer = React.forwardRef<RendererRef, RendererProps>(
+  ({ lines: initialLines = [], interval = 100, onCompleted, ...rest }, ref) => {
+    const [lines, setLines] = React.useState([]);
+    const [completed, setCompleted] = React.useState(false);
+    let intervalRef = React.useRef<NodeJS.Timer>();
+    let contentRef = React.useRef<Generator>();
 
-    intervalRef.current = setInterval(() => {
-      const { value, done } = contentRef.current.next();
-      if (value) {
-        setLines([...lines, ...value]);
-      }
+    React.useEffect(() => {
+      contentRef.current = termContent(initialLines);
 
-      if (done) {
-        clearTimeout(intervalRef.current);
-        setCompleted(true);
-      }
-    }, interval);
-
-    return () => clearTimeout(intervalRef.current);
-  }, []);
-
-  const replay = () => {
-    contentRef.current = termContent(initialLines);
-    setCompleted(false);
-
-    intervalRef.current = setInterval(() => {
-      if (contentRef.current) {
+      intervalRef.current = setInterval(() => {
         const { value, done } = contentRef.current.next();
-        setLines([...value]);
+        if (value) {
+          setLines([...lines, ...value]);
+        }
+
         if (done) {
-          clearInterval(intervalRef.current);
+          clearTimeout(intervalRef.current);
           setCompleted(true);
         }
+      }, interval);
+
+      return () => clearTimeout(intervalRef.current);
+    }, []);
+
+    const replay = () => {
+      contentRef.current = termContent(initialLines);
+      setCompleted(false);
+
+      intervalRef.current = setInterval(() => {
+        if (contentRef.current) {
+          const { value, done } = contentRef.current.next();
+          setLines([...value]);
+          if (done) {
+            clearInterval(intervalRef.current);
+            setCompleted(true);
+          }
+        }
+      }, interval);
+    };
+
+    React.useImperativeHandle(ref, () => ({
+      replay,
+    }));
+
+    React.useEffect(() => {
+      if (completed && typeof onCompleted !== 'undefined') {
+        onCompleted(replay);
       }
-    }, interval);
-  };
+    }, [completed]);
 
-  React.useEffect(() => {
-    if (completed && typeof onCompleted !== 'undefined') {
-      onCompleted(replay);
-    }
-  }, [completed]);
-
-  return (
-    <Terminal {...rest} onReplay={() => replay()} completed={completed}>
-      {lines}
-    </Terminal>
-  );
-};
+    return (
+      <Terminal {...rest} onReplay={() => replay()} completed={completed}>
+        {lines}
+      </Terminal>
+    );
+  }
+);
 
 export default Renderer;
