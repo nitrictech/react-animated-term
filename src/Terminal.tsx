@@ -33,7 +33,7 @@ const renderLines = (lines) => {
         ) : (
           line.text
         )}
-        {line.current ? cursor : ''}
+        {line.current && line.cmd ? cursor : ''}
         <br />
       </React.Fragment>
     );
